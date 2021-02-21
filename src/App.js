@@ -36,13 +36,13 @@ const App = ()=> {
         <NavComponent />
         <Container>
         <Switch>
-          <Route exact path='/' ><Home realData={realData}/></Route>
-          <Route path='/about' component={About}></Route>
+            <Route exact path='/ritu-writes/' ><Home realData={realData}/></Route>
+            <Route path='/ritu-writes/about' component={About}></Route>
           <Route path='/contact' component={Contact}></Route>
           <Route path='/content/:id' children={<Content realData={realData}/>}></Route>
           <Route path='/editdata/:id' children={<EditData realData={realData}/>}></Route>
           <Route path='/adddata' children={<AddData realData={realData}/>}></Route>
-          <Route path='/adminlogin' children={<AdminLogin />}></Route>
+            <Route path='/ritu-writes/adminlogin' children={<AdminLogin />}></Route>
           <Route path='/showmessage' children={<ShowMessage />}></Route>
           {/* <Route path='*' component={NoMatch}></Route> */}
         </Switch>
