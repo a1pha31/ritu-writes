@@ -37,13 +37,13 @@ const App = ()=> {
         <Container>
         <Switch>
           <Route exact path='/' ><Home realData={realData}/></Route>
-          <Route exact path='/about' component={About}></Route>
-          <Route exact path='/contact' component={Contact}></Route>
-          <Route exact path='/content/:id' children={<Content realData={realData}/>}></Route>
-          <Route exact path='/editdata/:id' children={<EditData realData={realData}/>}></Route>
-          <Route exact path='/adddata' children={<AddData realData={realData}/>}></Route>
-          <Route exact path='/adminlogin' children={<AdminLogin />}></Route>
-          <Route exact path='/showmessage' children={<ShowMessage />}></Route>
+          <Route path='/about' component={About}></Route>
+          <Route path='/contact' component={Contact}></Route>
+          <Route path='/content/:id' children={<Content realData={realData}/>}></Route>
+          <Route path='/editdata/:id' children={<EditData realData={realData}/>}></Route>
+          <Route path='/adddata' children={<AddData realData={realData}/>}></Route>
+          <Route path='/adminlogin' children={<AdminLogin />}></Route>
+          <Route path='/showmessage' children={<ShowMessage />}></Route>
           {/* <Route path='*' component={NoMatch}></Route> */}
         </Switch>
         </Container>

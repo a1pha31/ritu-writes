@@ -26,6 +26,7 @@ const Styles = styled.div`
     h1{
         margin-top:4%;
     }
+    }
 `
 
 const Contact = () => {
