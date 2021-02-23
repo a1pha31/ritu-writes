@@ -44,7 +44,7 @@ const App = ()=> {
           <Route path='/adddata' children={<AddData realData={realData}/>}></Route>
             <Route path='/adminlogin' children={<AdminLogin />}></Route>
           <Route path='/showmessage' children={<ShowMessage />}></Route>
-          {/* <Route path='*' component={NoMatch}></Route> */}
+          <Route path='*' component={NoMatch}></Route>
         </Switch>
         </Container>
       </Router>

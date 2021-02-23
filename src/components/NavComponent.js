@@ -1,5 +1,5 @@
 import React from "react";
-import { HashRouter as Router, Route, Switch } from 'react-router-dom';
+import { HashRouter as Router} from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav } from "react-bootstrap";
 import styled from 'styled-components';
@@ -60,7 +60,11 @@ const NavComponent = () => {
             <Router basename="/" />
             <Styles>
                 <Navbar variant="light" expand="lg">
-                    <Navbar.Brand className="mx-auto" to="/">{navBrand}</Navbar.Brand>
+                    <Navbar.Brand className="mx-auto">
+                        <Link to="/">
+                            {navBrand}
+                        </Link>
+                    </Navbar.Brand>
                     {sessionStorage.getItem("username") && <NavLinks />}
                 </Navbar>
             </Styles>
@@ -74,10 +78,10 @@ const Footer = () => {
         <FooterStyle>
             <Navbar>
                 <Nav className="ml-auto">
-                    <h6 style={{display:"inline"}}>Made with ❤ by 
-                    <Nav.Link style={{ display: "inline" }} to="/adminlogin">
-                        a1pha
-                    </Nav.Link>
+                    <h6 style={{ display: "inline" }}>Made with ❤ by
+                    <Link style={{ display: "inline" }} to="/adminlogin">
+                            a1pha
+                    </Link>
                     </h6>
                 </Nav>
             </Navbar>
@@ -88,19 +92,19 @@ const Footer = () => {
 
 const NavLinks = () => {
 
-    return(
+    return (
         <>
             <Navbar.Toggle />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="ml-auto">
-                    {sessionStorage.getItem("username") && <Nav.Link to="/adddata">Add</Nav.Link>}
-                    {sessionStorage.getItem("username") && <Nav.Link to="/showmessage">Messages</Nav.Link>}
-                    {sessionStorage.getItem("username") && <Nav.Link onClick={() => {
+                    {sessionStorage.getItem("username") && <Link to="/adddata">Add</Link>}
+                    {sessionStorage.getItem("username") && <Link to="/showmessage">Messages</Link>}
+                    {sessionStorage.getItem("username") && <Link onClick={() => {
                         sessionStorage.clear()
                         window.location.assign("/");
                     }}>
                         Logout
-                            </Nav.Link>}
+                    </Link>}
                 </Nav>
             </Navbar.Collapse>
         </>
