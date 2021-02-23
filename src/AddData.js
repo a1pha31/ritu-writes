@@ -4,7 +4,7 @@ import { Form, Container, Button } from 'react-bootstrap';
 import styled from 'styled-components';
 import ShowModal from './components/ShowModal';
 import { render } from '@testing-library/react';
-import {Link } from 'react-router-dom';
+import {Link, useHistory } from 'react-router-dom';
 import cpat from './components/Pics/cardPat1.jpg'
 
 const Styles = styled.div`
@@ -28,9 +28,9 @@ const Styles = styled.div`
 }
 `
 const AddData = ({ realData }) => {
-
+    const history = useHistory()
     if(!sessionStorage.getItem("username")){
-        window.location.assign("/");
+        history.push("/");
     }
 
     const allCategories = ["All", ...new Set(Object.keys(realData).map((id) => realData[id].category))];

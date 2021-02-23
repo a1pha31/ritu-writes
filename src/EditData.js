@@ -4,7 +4,7 @@ import { Form, Container, Button } from 'react-bootstrap';
 import styled from 'styled-components';
 import ShowModal from './components/ShowModal';
 import { render } from '@testing-library/react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useHistory, useParams } from 'react-router-dom';
 import cpat from './components/Pics/cardPat1.jpg'
 
 const Styles = styled.div`
@@ -31,12 +31,12 @@ const Styles = styled.div`
 }
 `
 const EditData = ({ realData }) => {
-
+    const history = useHistory();
     const DB = firebase.database().ref();
 
     if (!sessionStorage.getItem("username")) {
         sessionStorage.clear();
-        window.location.assign("/");
+        history.push("/");
     }
     const {id} = useParams();
     const allCategories = ["All", ...new Set(Object.keys(realData).map((id) => realData[id].category))];

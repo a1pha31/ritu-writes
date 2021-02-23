@@ -5,7 +5,7 @@ import cpat from './components/Pics/cardPat1.jpg'
 import emailjs, {init} from 'emailjs-com';
 import ShowModal from './components/ShowModal';
 import { render } from '@testing-library/react';
-import {Link} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 
 const Styles = styled.div`
     .container{
@@ -47,9 +47,9 @@ const Styles = styled.div`
     }
 `
 const ShowMessage = () => {
-
-    if (!sessionStorage.getItem("username")) {
-        window.location.assign("/");
+    const history = useHistory();
+        if (!sessionStorage.getItem("username")) {
+            history.push("/");
     }
     init("user_snMRHQ7aN070iSWaTOs8R");
 

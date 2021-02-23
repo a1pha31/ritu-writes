@@ -6,7 +6,7 @@ import firebase from './../util/firebase';
 import ShowModal from './ShowModal';
 import { render } from '@testing-library/react';
 import bground from './Pics/cardPat1.jpg'
-
+import {useHistory} from 'react-router-dom';
 
 const Styles = styled.div`
     .container{
@@ -48,8 +48,10 @@ const Styles = styled.div`
 
 export default function AdminLogin() {
 
+    const history = useHistory();
     if(sessionStorage.getItem('username')){
-        window.location.assign('/');
+        history.push('/');
+        // window.location.assign('/');
     }
 
     const DB = firebase.database().ref();
@@ -69,7 +71,8 @@ export default function AdminLogin() {
             console.log(allLoginData[id].password, password)
             if (allLoginData[id].password === password){
                 sessionStorage.setItem("username", username);
-                window.location.assign("/"); 
+                history.push("/");
+                // window.location.assign("/"); 
             }
             else{
                 render(<ShowModal message="Wrong Password" title="Login"/>)

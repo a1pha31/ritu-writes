@@ -1,5 +1,5 @@
 import React from "react";
-import { HashRouter as Router} from 'react-router-dom';
+import { HashRouter as Router, useHistory} from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav } from "react-bootstrap";
 import styled from 'styled-components';
@@ -29,7 +29,7 @@ const Styles = styled.div`
             color: black;
         }
     }
-    a.nav-link{
+    a{
         color: black !important;
     }
     @media screen and (max-width:990px){
@@ -91,7 +91,7 @@ const Footer = () => {
 
 
 const NavLinks = () => {
-
+    const history = useHistory();
     return (
         <>
             <Navbar.Toggle />
@@ -101,7 +101,8 @@ const NavLinks = () => {
                     {sessionStorage.getItem("username") && <Link to="/showmessage">Messages</Link>}
                     {sessionStorage.getItem("username") && <Link onClick={() => {
                         sessionStorage.clear()
-                        window.location.assign("/");
+                        history.push("/");
+                        // window.location.assign("/");
                     }}>
                         Logout
                     </Link>}

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from 'styled-components';
 import { Button, CardDeck, Card, Container } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import firebase from './util/firebase';
 import ShowModal from './components/ShowModal';
 import { render } from '@testing-library/react';
@@ -122,7 +122,7 @@ const AllContent = ({ realData }) => {
 
 const Content = ({ contentData, cat, deletePost, count }) => {
 
-    
+    const history = useHistory();
     if (cat === 'All') {
         return (
             <CardDeck >
@@ -143,7 +143,7 @@ const Content = ({ contentData, cat, deletePost, count }) => {
                                     <Button variant="outline-secondary btn-sm">Read More</Button>
                                 </Link>
                                 {sessionStorage.getItem('username') && <Button onClick={() => deletePost({ id })} variant="outline-secondary btn-sm"><i className="fa fa-trash-o" /></Button>}
-                                {sessionStorage.getItem('username') && <Button onClick={() => window.location.assign(`/editdata/${id}`)} variant="outline-secondary btn-sm"><i className="fa fa-pencil" /></Button>}
+                                {sessionStorage.getItem('username') && <Button onClick={() => history.push(`/editdata/${id}`)} variant="outline-secondary btn-sm"><i className="fa fa-pencil" /></Button>}
                             </Card.Body>
                             {/* <Card.Footer className="">2 days ago</Card.Footer> */}
                         </Card>
@@ -171,7 +171,7 @@ const Content = ({ contentData, cat, deletePost, count }) => {
                                 <Button variant="outline-secondary btn-sm">Read More</Button>
                             </Link>
                             {sessionStorage.getItem('username') && <Button onClick={() => deletePost({ id })} variant="outline-secondary btn-sm"><i className="fa fa-trash-o" /></Button>}
-                            {sessionStorage.getItem('username') && <Button onClick={() => window.location.assign(`/editdata/${id}`)} variant="outline-secondary btn-sm"><i className="fa fa-pencil" /></Button>}
+                            {sessionStorage.getItem('username') && <Button onClick={() => history.push(`/editdata/${id}`)} variant="outline-secondary btn-sm"><i className="fa fa-pencil" /></Button>}
                         </Card.Body>
                         {/* <Card.Footer className="">2 days ago</Card.Footer> */}
                     </Card>
