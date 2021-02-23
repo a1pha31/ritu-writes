@@ -1,4 +1,5 @@
 import React from "react";
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav } from "react-bootstrap";
 import styled from 'styled-components';
@@ -56,6 +57,7 @@ const NavComponent = () => {
     const navBrand = 'Ritu Raj Raushan';
     return (
         <div>
+            <Router basename="/" />
             <Styles>
                 <Navbar variant="light" expand="lg">
                     <Navbar.Brand className="mx-auto" href="/">{navBrand}</Navbar.Brand>
