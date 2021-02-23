@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import {HashRouter as Router, Route, Switch} from 'react-router-dom';
 import {Container} from 'react-bootstrap';
 import Home from './Home';
 import Contact from './Contact';
@@ -32,7 +32,7 @@ const App = ()=> {
 
   return (
     <>
-      <Router>
+      <Router basename="/">
         <NavComponent />
         <Container>
         <Switch>
