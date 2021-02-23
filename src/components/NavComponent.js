@@ -60,7 +60,7 @@ const NavComponent = () => {
             <Router basename="/" />
             <Styles>
                 <Navbar variant="light" expand="lg">
-                    <Navbar.Brand className="mx-auto" href="/">{navBrand}</Navbar.Brand>
+                    <Navbar.Brand className="mx-auto" to="/">{navBrand}</Navbar.Brand>
                     {sessionStorage.getItem("username") && <NavLinks />}
                 </Navbar>
             </Styles>
@@ -75,7 +75,7 @@ const Footer = () => {
             <Navbar>
                 <Nav className="ml-auto">
                     <h6 style={{display:"inline"}}>Made with ❤ by 
-                    <Nav.Link style={{ display: "inline" }} href="/adminlogin">
+                    <Nav.Link style={{ display: "inline" }} to="/adminlogin">
                         a1pha
                     </Nav.Link>
                     </h6>
@@ -93,8 +93,8 @@ const NavLinks = () => {
             <Navbar.Toggle />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="ml-auto">
-                    {sessionStorage.getItem("username") && <Nav.Link href="/adddata">Add</Nav.Link>}
-                    {sessionStorage.getItem("username") && <Nav.Link href="/showmessage">Messages</Nav.Link>}
+                    {sessionStorage.getItem("username") && <Nav.Link to="/adddata">Add</Nav.Link>}
+                    {sessionStorage.getItem("username") && <Nav.Link to="/showmessage">Messages</Nav.Link>}
                     {sessionStorage.getItem("username") && <Nav.Link onClick={() => {
                         sessionStorage.clear()
                         window.location.assign("/");

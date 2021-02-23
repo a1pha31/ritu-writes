@@ -5,6 +5,7 @@ import cpat from './components/Pics/cardPat1.jpg'
 import emailjs, {init} from 'emailjs-com';
 import ShowModal from './components/ShowModal';
 import { render } from '@testing-library/react';
+import {Link} from 'react-router-dom';
 
 const Styles = styled.div`
     .container{
@@ -144,7 +145,7 @@ const ShowMessage = () => {
                                     <tr key={id} >
                                         <td>{realData[id].name}</td>
                                         <td><pre> {realData[id].message}</pre></td>
-                                        <td><a href="#replyForm" onClick={() => replyThis(id)} className="btn btn-sm btn-outline-secondary">Reply</a></td>
+                                        <td><Link to="#replyForm" onClick={() => replyThis(id)} className="btn btn-sm btn-outline-secondary">Reply</Link></td>
                                     </tr>
                                 )
                             })}

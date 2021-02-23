@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from 'styled-components'
 
 const Styles = styled.div`
@@ -16,7 +17,7 @@ const NoMatch = () => {
         <Styles>
             <div className="container">
                     <h2>This page is unavailabe.</h2>
-                    <a className="btn btn-outline-secondary" href="/">Back</a>
+                    <Link className="btn btn-outline-secondary" to="/">Back</Link>
             </div>
         </Styles>
     )
