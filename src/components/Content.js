@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Container, Button, Form } from 'react-bootstrap';
 import styled from 'styled-components';
-import cpat from './components/Pics/cardPat1.jpg'
+import cpat from './Pics/cardPat1.jpg'
 
 
 const Styles = styled.div`

@@ -2,13 +2,11 @@ import React, { useState } from "react";
 import styled from 'styled-components';
 import { Button, CardDeck, Card, Container } from 'react-bootstrap';
 import { Link, useHistory } from 'react-router-dom';
-import firebase from './util/firebase';
-import ShowModal from './components/ShowModal';
+import firebase from '../util/firebase';
+import ShowModal from './ShowModal';
 import { render } from '@testing-library/react';
-import bground from './components/Pics/stone.jpg'
-import cpat from './components/Pics/cardPat1.jpg'
-
-
+import bground from './Pics/stone.jpg'
+import cpat from './Pics/cardPat1.jpg'
 
 const Styles = styled.div`
 

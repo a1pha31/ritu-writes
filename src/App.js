@@ -2,16 +2,15 @@ import React, {useState, useEffect} from 'react';
 import {HashRouter as Router, Route, Switch} from 'react-router-dom';
 import {Container} from 'react-bootstrap';
 import Home from './Home';
-import Contact from './Contact';
-import About from './About';
+import Contact from './components/Contact';
 import NoMatch from './components/NoMatch';
 import NavComponent from './components/NavComponent';
-import Content from './Content';
+import Content from './components/Content';
 import AdminLogin from './components/AdminLogin';
-import AddData from './AddData';
-import EditData from './EditData';
+import AddData from './components/AddData';
+import EditData from './components/EditData';
 import firebase from './util/firebase';
-import ShowMessage from './ShowMessage';
+import ShowMessage from './components/ShowMessage';
 
 const App = ()=> {
   const DB = firebase.database().ref();
@@ -37,7 +36,6 @@ const App = ()=> {
         <Container>
         <Switch>
             <Route exact path='/' ><Home realData={realData}/></Route>
-            <Route path='/about' component={About}></Route>
           <Route path='/contact' component={Contact}></Route>
           <Route path='/content/:id' children={<Content realData={realData}/>}></Route>
           <Route path='/editdata/:id' children={<EditData realData={realData}/>}></Route>

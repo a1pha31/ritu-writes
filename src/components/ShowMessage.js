@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import firebase from './util/firebase';
+import firebase from '../util/firebase';
 import styled from 'styled-components';
-import cpat from './components/Pics/cardPat1.jpg'
+import cpat from './Pics/cardPat1.jpg'
 import emailjs, {init} from 'emailjs-com';
-import ShowModal from './components/ShowModal';
+import ShowModal from './ShowModal';
 import { render } from '@testing-library/react';
 import {Link, useHistory} from 'react-router-dom';
 

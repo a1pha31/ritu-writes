@@ -1,9 +1,9 @@
 import React, {useState} from "react";
 import { Container, Form, Button, Col } from 'react-bootstrap';
 import styled from 'styled-components';
-import bground from './components/Pics/moroccan-flower.png'
-import firebase from './util/firebase';
-import ShowModal from './components/ShowModal';
+import bground from './Pics/moroccan-flower.png'
+import firebase from '../util/firebase';
+import ShowModal from './ShowModal';
 import { render } from '@testing-library/react';
 
 const Styles = styled.div`

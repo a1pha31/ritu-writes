@@ -1,7 +1,7 @@
 import React from "react";
 import styled from 'styled-components';
-import AllContent from './AllContent';
-import Message from './Message';
+import AllContent from './components/AllContent';
+import Message from './components/Message';
 import MyCarousel from "./components/MyCarousel";
 import Subscribe from "./components/Subscribe";
 

@@ -72,7 +72,7 @@ export default function AdminLogin() {
             if (allLoginData[id].password === password){
                 sessionStorage.setItem("username", username);
                 history.push("/");
-                // window.location.assign("/"); 
+                window.location.reload(); 
             }
             else{
                 render(<ShowModal message="Wrong Password" title="Login"/>)
