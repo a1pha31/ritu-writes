@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, createContext} from 'react';
 import {HashRouter as Router, Route, Switch} from 'react-router-dom';
 import {Container} from 'react-bootstrap';
 import Home from './Home';
@@ -11,6 +11,8 @@ import AddData from './components/AddData';
 import EditData from './components/EditData';
 import firebase from './util/firebase';
 import ShowMessage from './components/ShowMessage';
+
+export const RealData = createContext();
 
 const App = ()=> {
   const DB = firebase.database().ref();
@@ -25,28 +27,28 @@ const App = ()=> {
         })
       }
     })
-  }, []);
+  }, [DB]);
 
   sessionStorage.setItem('cType', "All");
 
   return (
-    <>
+    <RealData.Provider value = {realData}>
       <Router basename="/">
         <NavComponent />
         <Container>
         <Switch>
-            <Route exact path='/' ><Home realData={realData}/></Route>
+            <Route exact path='/' ><Home/></Route>
           <Route path='/contact' component={Contact}></Route>
-          <Route path='/content/:id' children={<Content realData={realData}/>}></Route>
-          <Route path='/editdata/:id' children={<EditData realData={realData}/>}></Route>
-          <Route path='/adddata' children={<AddData realData={realData}/>}></Route>
+          <Route path='/content/:id' children={<Content/>}></Route>
+          <Route path='/editdata/:id' children={<EditData />}></Route>
+          <Route path='/adddata' children={<AddData />}></Route>
             <Route path='/adminlogin' children={<AdminLogin />}></Route>
           <Route path='/showmessage' children={<ShowMessage />}></Route>
           <Route path='*' component={NoMatch}></Route>
         </Switch>
         </Container>
       </Router>
-    </>
+    </RealData.Provider>
   );
 }
 

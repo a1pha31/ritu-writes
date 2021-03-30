@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { Container, Button, Form } from 'react-bootstrap';
 import styled from 'styled-components';
 import cpat from './Pics/cardPat1.jpg'
+import { RealData } from '../App';
 
 
 const Styles = styled.div`
@@ -33,10 +34,10 @@ const Styles = styled.div`
     }
 `
 
-const Content = ({ realData }) => {
+const Content = () => {
 
     const { id } = useParams();
-
+    const realData = React.useContext(RealData);
 
     return (
         <Styles>

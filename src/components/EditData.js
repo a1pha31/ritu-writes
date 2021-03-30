@@ -6,6 +6,7 @@ import ShowModal from './ShowModal';
 import { render } from '@testing-library/react';
 import { Link, useHistory, useParams } from 'react-router-dom';
 import cpat from './Pics/cardPat1.jpg'
+import { RealData } from '../App';
 
 const Styles = styled.div`
     .container{
@@ -30,7 +31,8 @@ const Styles = styled.div`
     }
 }
 `
-const EditData = ({ realData }) => {
+const EditData = () => {
+    const realData = React.useContext(RealData);
     const history = useHistory();
     const DB = firebase.database().ref();
 

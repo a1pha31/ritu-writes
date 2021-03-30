@@ -8,6 +8,9 @@ import { render } from '@testing-library/react';
 import bground from './Pics/stone.jpg'
 import cpat from './Pics/cardPat1.jpg'
 
+import { RealData } from '../App';
+
+
 const Styles = styled.div`
 
     
@@ -71,7 +74,9 @@ const Styles = styled.div`
 `
 
 
-const AllContent = ({ realData }) => {
+const AllContent = () => {
+
+    const realData = React.useContext(RealData);
 
     const DB = firebase.database().ref();
     const [type, setType] = useState(sessionStorage.getItem('cType'));

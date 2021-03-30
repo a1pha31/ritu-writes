@@ -1,14 +1,13 @@
-import React from "react";
-import styled from 'styled-components';
+import React, {useContext, useEffect} from "react";
 import AllContent from './components/AllContent';
 import Message from './components/Message';
 import MyCarousel from "./components/MyCarousel";
-import Subscribe from "./components/Subscribe";
+import {RealData} from './App';
 
 
-
-const Home = ({ realData }) => {
-
+const Home = () => {
+    
+    const realData = useContext(RealData);
     const allCategories = ["All", ...new Set(Object.keys(realData).map((id) => realData[id].category))];
 
     return (
@@ -16,7 +15,6 @@ const Home = ({ realData }) => {
             <MyCarousel allCategories={allCategories}/>
             <AllContent realData={realData}/>
             <Message/>
-            {/* <Subscribe /> */}
         </>
     )
 }
