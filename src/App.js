@@ -11,13 +11,24 @@ import AddData from './components/AddData';
 import EditData from './components/EditData';
 import firebase from './util/firebase';
 import ShowMessage from './components/ShowMessage';
+import HashLoader from "react-spinners/HashLoader";
+import styled from 'styled-components';
+
 
 export const RealData = createContext();
 
+
+const Styles = styled.div`
+  .loader{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+  }
+`
 const App = ()=> {
   const DB = firebase.database().ref();
   const [realData, setRealData] = useState({});
-
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     DB.child('content').on('value', snapshot => {
@@ -25,19 +36,36 @@ const App = ()=> {
         setRealData({
           ...snapshot.val(),
         })
+        setLoading(false);
       }
     })
   }, [DB]);
+
+  // useEffect(() => {
+  //   setLoading(true);
+  //   setTimeout(() =>{
+  //     setLoading(false);
+  //   },4000)
+  // },[]);
 
   sessionStorage.setItem('cType', "All");
 
   return (
     <RealData.Provider value = {realData}>
+      {
+        loading ?
+        <Styles>
+          <div className="loader">
+              <HashLoader color={"#110F0F"} loading={loading} size={100} />
+          </div>
+        </Styles>
+          :
+
       <Router basename="/">
         <NavComponent />
         <Container>
         <Switch>
-            <Route exact path='/' ><Home/></Route>
+          <Route exact path='/' ><Home/></Route>
           <Route path='/contact' component={Contact}></Route>
           <Route path='/content/:id' children={<Content/>}></Route>
           <Route path='/editdata/:id' children={<EditData />}></Route>
@@ -48,6 +76,7 @@ const App = ()=> {
         </Switch>
         </Container>
       </Router>
+      }
     </RealData.Provider>
   );
 }
