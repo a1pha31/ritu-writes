@@ -16,7 +16,7 @@ const Styles = styled.div`
         }
         .container{
             padding: 2%;
-            margin-bottom:20%;
+            margin-bottom:5%;
         }
         form{
             width:100%;
@@ -26,7 +26,7 @@ const Styles = styled.div`
         font-family:cursive;
         color:#302F2A;
         background-image: url(${bground});
-        margin-bottom:15%;
+        margin-bottom:5%;
         background-color:#DFECE5;
         padding:3%;
     }

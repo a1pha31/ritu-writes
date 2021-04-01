@@ -11,7 +11,7 @@ import AddData from './components/AddData';
 import EditData from './components/EditData';
 import firebase from './util/firebase';
 import ShowMessage from './components/ShowMessage';
-import HashLoader from "react-spinners/HashLoader";
+import Loader from "react-spinners/HashLoader";
 import styled from 'styled-components';
 
 
@@ -49,7 +49,7 @@ const App = ()=> {
         loading ?
         <Styles>
           <div className="loader">
-              <HashLoader color={"#110F0F"} loading={loading} size={100} />
+              <Loader color={"#110F0F"} loading={loading} size={100} />
           </div>
         </Styles>
           :
