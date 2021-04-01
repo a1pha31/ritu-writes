@@ -2,7 +2,7 @@
   "name": "myapprrr",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://a1pha31.github.io/ritu-writes/",
+  "homepage": "https://a1pha31.github.io/ritu-writes/", 
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",

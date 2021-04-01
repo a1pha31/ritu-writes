@@ -1,5 +1,5 @@
 import React, {useState, useEffect, createContext} from 'react';
-import {HashRouter as Router, Route, Switch} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import {Container} from 'react-bootstrap';
 import Home from './Home';
 import Contact from './components/Contact';
@@ -41,13 +41,6 @@ const App = ()=> {
     })
   }, [DB]);
 
-  // useEffect(() => {
-  //   setLoading(true);
-  //   setTimeout(() =>{
-  //     setLoading(false);
-  //   },4000)
-  // },[]);
-
   sessionStorage.setItem('cType', "All");
 
   return (
@@ -61,7 +54,7 @@ const App = ()=> {
         </Styles>
           :
 
-      <Router basename="/">
+      <Router>
         <NavComponent />
         <Container>
         <Switch>
