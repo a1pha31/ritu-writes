@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/ritu-writes/static/js/main.49634cf7.chunk.js",
-    "main.js.map": "/ritu-writes/static/js/main.49634cf7.chunk.js.map",
+    "main.js": "/ritu-writes/static/js/main.601bb8be.chunk.js",
+    "main.js.map": "/ritu-writes/static/js/main.601bb8be.chunk.js.map",
     "runtime-main.js": "/ritu-writes/static/js/runtime-main.85559d8b.js",
     "runtime-main.js.map": "/ritu-writes/static/js/runtime-main.85559d8b.js.map",
     "static/css/2.20aa2d7b.chunk.css": "/ritu-writes/static/css/2.20aa2d7b.chunk.css",
@@ -21,6 +21,6 @@
     "static/js/runtime-main.85559d8b.js",
     "static/css/2.20aa2d7b.chunk.css",
     "static/js/2.12e36529.chunk.js",
-    "static/js/main.49634cf7.chunk.js"
+    "static/js/main.601bb8be.chunk.js"
   ]
 }
