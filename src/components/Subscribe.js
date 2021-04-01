@@ -124,9 +124,11 @@ const Subscribe = () => {
                     <Button className="mb-2 " variant="outline-secondary" type="submit">
                         Subscribe
                     </Button>
+                    {sessionStorage.getItem("username") && 
                     <Button className="mb-2 " style={{marginLeft:"5px"}} variant="outline-secondary" onClick={() => setSubs(!subs)}>
                         {subs ? "Hide" : "Show" } Subscribers
                     </Button>
+                    }
                     {subs && <ShowSubscribers emailList={emailList} />}
                 </Form>
             </Container>
