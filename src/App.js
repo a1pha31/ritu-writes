@@ -1,5 +1,5 @@
 import React, {useState, useEffect, createContext} from 'react';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import {HashRouter as Router, Route, Switch} from 'react-router-dom';
 import {Container} from 'react-bootstrap';
 import Home from './Home';
 import Contact from './components/Contact';
@@ -54,7 +54,7 @@ const App = ()=> {
         </Styles>
           :
 
-      <Router>
+      <Router basename="/">
         <NavComponent />
         <Container>
         <Switch>

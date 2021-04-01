@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, useHistory} from 'react-router-dom';
+import { HashRouter as Router, useHistory} from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav } from "react-bootstrap";
 import styled from 'styled-components';
@@ -57,7 +57,7 @@ const NavComponent = () => {
     const navBrand = 'Ritu Raj Raushan';
     return (
         <div>
-            <Router/>
+            <Router basename="/"/>
             <Styles>
                 <Navbar variant="light" expand="lg">
                     <Navbar.Brand className="mx-auto">
