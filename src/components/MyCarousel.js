@@ -41,7 +41,7 @@ function MyCarousel({allCategories}) {
         <Styles>
         <Carousel activeIndex={index} onSelect={handleSelect}>
             <Carousel.Item>
-                    <img style={{ height: "400px;"}}
+                    <img style={{ height: "400px"}}
                     className="d-block w-100"
                     src={p3}
                     alt="First slide"

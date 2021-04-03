@@ -36,8 +36,8 @@ const App = ()=> {
         setRealData({
           ...snapshot.val(),
         })
-        setLoading(false);
       }
+      setLoading(false);
     })
   }, [DB]);
 

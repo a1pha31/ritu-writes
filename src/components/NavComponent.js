@@ -34,7 +34,7 @@ const Styles = styled.div`
     }
     @media screen and (max-width:990px){
         .navbar-brand{
-            font-size : 1.5rem;
+            font-size : 1.2rem;
         }
     
     }
@@ -61,7 +61,7 @@ const NavComponent = () => {
             <Styles>
                 <Navbar variant="light" expand="lg">
                     <Navbar.Brand className="mx-auto">
-                        <Nav.Link as={Link} to="/">{navBrand}</Nav.Link>
+                        <Nav.Link  as={Link} to="/">{navBrand}</Nav.Link>
                     </Navbar.Brand>
                     {sessionStorage.getItem("username") && <NavLinks />}
                 </Navbar>

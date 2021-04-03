@@ -7,7 +7,7 @@ import ShowModal from './ShowModal';
 import { render } from '@testing-library/react';
 import bground from './Pics/cardPat1.jpg'
 import {useHistory} from 'react-router-dom';
-
+import Loader from 'react-spinners/HashLoader'
 const Styles = styled.div`
     .container{
         background-image: url(${bground});
@@ -59,6 +59,7 @@ export default function AdminLogin() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [allLoginData, setAllLoginData] = useState({});
+    const [loading, setLoading] = useState(false);
 
     function validateForm() {
         return username.length > 0 && password.length > 0;
@@ -98,6 +99,14 @@ export default function AdminLogin() {
 
     return (
         <Styles>
+            {
+                loading ?
+                    <Loader style={{
+                        position: "absolute",
+                        top:"50 ",
+                        left:"50"}}
+                        color={"#110F0F"} loading={loading} size={100} />
+                :
             <Container>
                 <Form onSubmit={handleSubmit} autoComplete="off">
                     <h1><b>LOGIN</b></h1>
@@ -125,6 +134,7 @@ export default function AdminLogin() {
                 </Button>
             </Form>
             </Container>
+            }
         </Styles>
     );
 }

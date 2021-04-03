@@ -23,9 +23,10 @@ const Styles = styled.div`
         }
     }
 
-    h2{
+    h1{
         text-align:center;
         color:whitesmoke;
+        margin-bottom:2%;
     }
     .btn{
         color:whitesmoke;
@@ -59,7 +60,10 @@ const Styles = styled.div`
 const Subscribe = () => {
 
     const DB = firebase.database().ref();
-    const [eData, setEData] = useState("");
+    const [eData, setEData] = useState({
+        name : "",
+        email: ""
+    });
     const [emailList, setEmailList] = useState({});
     const [cList, setCList] = useState(false);
     const [subs, setSubs] = useState(false);
@@ -72,18 +76,22 @@ const Subscribe = () => {
                 })
             }
         })
-        console.log(emailList);
     },[cList]);
 
 
     const handleChange = (e) =>{
-        setEData(e.target.value)
+        setEData({
+            ...eData,
+            [e.target.name] : e.target.value
+        })
     }
 
     const handleOnSubmit = (e) => {
         setCList(!cList);
         e.preventDefault();
-        if (Object.values(emailList).indexOf(eData) > -1) {
+        const length = Object.keys(emailList).length;
+        console.log(length);
+        if ((Object.values(emailList).filter(id => id.email != eData.email).length === 0) && Object.keys(emailList).length != 0) {
             render(<ShowModal message="You are already subscribed!!" title="Subscribe" />)
         }
         else{
@@ -97,7 +105,10 @@ const Subscribe = () => {
                     }
                     else {
                         render(<ShowModal message="Thank you!! You have been successfully subscribed." title="Subscribe" />)
-                        setEData("");
+                        setEData({
+                            name : "",
+                            email: ""
+                        });
                     }
                 }
                 )
@@ -107,20 +118,29 @@ const Subscribe = () => {
     return (
         <Styles >
             <Container >
-                <h2 >Subscribe</h2>
+                <h1 >Subscribe</h1>
                 <Form className="mx-auto" onSubmit={handleOnSubmit}>
                     <Form.Group controlId="exampleForm.ControlInput2">
                         <Form.Control 
-                            id="email"
-                            value={eData}
-                            className="mb-2 mr-sm-2" 
+                            value={eData.name}
+                            className="mb-4 mr-sm-2" 
                             autoComplete="off" 
                             onChange={handleChange}
-                            name="email" type="email"
-                            placeholder="Your Email here" 
+                            name="name" type="text"
+                            placeholder="Your Name here" 
                             required 
                         />
+                        <Form.Control
+                            value={eData.email}
+                            className="mb-2 mr-sm-2"
+                            autoComplete="off"
+                            onChange={handleChange}
+                            name="email" type="email"
+                            placeholder="Your Email here"
+                            required
+                        />
                     </Form.Group>
+                    <p style={{ color: "whitesmoke" ,margin:"0"}}>Submit your email address to receive updates.<br /> Unsubscribe from our emails at any time.</p>
                     <Button className="mb-2 " variant="outline-secondary" type="submit">
                         Subscribe
                     </Button>
@@ -140,7 +160,7 @@ const Subscribe = () => {
 const ShowSubscribers = ({emailList}) => {
 
     const totalSubs = Object.keys(emailList).length;
-    console.log(totalSubs);
+    console.log(emailList);
 
     return(
         <div style={{textAlign:"justify"}}>
@@ -148,7 +168,11 @@ const ShowSubscribers = ({emailList}) => {
         {Object.keys(emailList).map((id) =>{
             const email = emailList[id];
             return(
-                <h6 style={{color:"white", marginLeft:"3%"}} key="id">{email}</h6>
+                <p style={{ color: "white", marginLeft: "3%" }} key="id">
+                    {email.name}
+                    &nbsp;&nbsp;&nbsp;
+                    {email.email}
+                </p>
             )
         })}
         </div>
