@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.js": "/ritu-writes/static/js/main.601bb8be.chunk.js",
-    "main.js.map": "/ritu-writes/static/js/main.601bb8be.chunk.js.map",
+    "main.js": "/ritu-writes/static/js/main.516e5445.chunk.js",
+    "main.js.map": "/ritu-writes/static/js/main.516e5445.chunk.js.map",
     "runtime-main.js": "/ritu-writes/static/js/runtime-main.85559d8b.js",
     "runtime-main.js.map": "/ritu-writes/static/js/runtime-main.85559d8b.js.map",
     "static/css/2.20aa2d7b.chunk.css": "/ritu-writes/static/css/2.20aa2d7b.chunk.css",
-    "static/js/2.12e36529.chunk.js": "/ritu-writes/static/js/2.12e36529.chunk.js",
-    "static/js/2.12e36529.chunk.js.map": "/ritu-writes/static/js/2.12e36529.chunk.js.map",
+    "static/js/2.b76e0f53.chunk.js": "/ritu-writes/static/js/2.b76e0f53.chunk.js",
+    "static/js/2.b76e0f53.chunk.js.map": "/ritu-writes/static/js/2.b76e0f53.chunk.js.map",
     "index.html": "/ritu-writes/index.html",
     "static/css/2.20aa2d7b.chunk.css.map": "/ritu-writes/static/css/2.20aa2d7b.chunk.css.map",
-    "static/js/2.12e36529.chunk.js.LICENSE.txt": "/ritu-writes/static/js/2.12e36529.chunk.js.LICENSE.txt",
+    "static/js/2.b76e0f53.chunk.js.LICENSE.txt": "/ritu-writes/static/js/2.b76e0f53.chunk.js.LICENSE.txt",
     "static/media/carw.a859f129.jpg": "/ritu-writes/static/media/carw.a859f129.jpg",
     "static/media/images.099598ff.jpg": "/ritu-writes/static/media/images.099598ff.jpg",
     "static/media/love.a22ab81c.jpg": "/ritu-writes/static/media/love.a22ab81c.jpg",
@@ -20,7 +20,7 @@
   "entrypoints": [
     "static/js/runtime-main.85559d8b.js",
     "static/css/2.20aa2d7b.chunk.css",
-    "static/js/2.12e36529.chunk.js",
-    "static/js/main.601bb8be.chunk.js"
+    "static/js/2.b76e0f53.chunk.js",
+    "static/js/main.516e5445.chunk.js"
   ]
 }
