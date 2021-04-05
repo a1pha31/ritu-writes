@@ -12,11 +12,17 @@ import EditData from './components/EditData';
 import firebase from './util/firebase';
 import ShowMessage from './components/ShowMessage';
 import Loader from "react-spinners/HashLoader";
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
+import cpat from './components/Pics/cardPat1.jpg'
 
 
 export const RealData = createContext();
 
+const GlobalStyle = createGlobalStyle`
+  body {
+    color: url(${cpat});
+  }
+`
 
 const Styles = styled.div`
   .loader{
@@ -45,6 +51,7 @@ const App = ()=> {
 
   return (
     <RealData.Provider value = {realData}>
+      <GlobalStyle cpat/>
       {
         loading ?
         <Styles>

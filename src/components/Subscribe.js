@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Button, Container, Form} from "react-bootstrap";
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 import firebase from '../util/firebase';
 import ShowModal from './ShowModal';
-import { getByDisplayValue, render } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import bground from './Pics/pat3.jpg'
-
-
 
 const Styles = styled.div`
 
@@ -91,7 +89,7 @@ const Subscribe = () => {
         e.preventDefault();
         const length = Object.keys(emailList).length;
         console.log(length);
-        if ((Object.values(emailList).filter(id => id.email != eData.email).length === 0) && Object.keys(emailList).length != 0) {
+        if ((Object.values(emailList).filter(id => id.email !== eData.email).length === 0) && Object.keys(emailList).length !== 0) {
             render(<ShowModal message="You are already subscribed!!" title="Subscribe" />)
         }
         else{

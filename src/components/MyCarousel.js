@@ -16,12 +16,12 @@ var Styles = styled.div`
     img{
         height: 400px;
     }
-    @media screen and (max-width:800px){
+    @media screen and (max-width:700px){
         .carousel{
             margin-top:12%;
         }
         img{
-            height: 350px;
+            /* height: 350px; */
             width:100%
         }
     }

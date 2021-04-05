@@ -10,12 +10,12 @@ import { RealData } from '../App';
 import Loader from 'react-spinners/ClipLoader'
 
 const Styles = styled.div`
-    *{
+    /* *{
         box-sizing:border-box;
-    }
+    } */
     
     .container{
-        background-image: url(${cpat});
+        /* background-image: url(${cpat}); */
         padding: 2%;
         margin-top: 10%;
         margin-bottom: 10%;
