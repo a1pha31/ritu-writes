@@ -8,6 +8,7 @@ import { Link, useHistory } from 'react-router-dom';
 import cpat from './Pics/cardPat1.jpg'
 import { RealData } from '../App';
 import Loader from 'react-spinners/ClipLoader'
+import axios from 'axios';
 
 const Styles = styled.div`
     /* *{
@@ -44,15 +45,24 @@ const Styles = styled.div`
     }
 }
 `
+
+const { REACT_APP_SERVER_PORT } = process.env;
+
 const AddData = () => {
     const realData = React.useContext(RealData);
     const history = useHistory();
     const [subsList, setSubsList] = useState({});
     const [loading, setLoading] = useState(true);
+    const [all, setAll] = useState(false);
+
     const DB = firebase.database().ref();
 
     if (!sessionStorage.getItem("username")) {
         history.push("/");
+    }
+
+    const handleToggle = () => {
+        setAll(!all);
     }
 
     const allCategories = ["All", ...new Set(Object.keys(realData).map((id) => realData[id].category))];
@@ -67,6 +77,7 @@ const AddData = () => {
             }
             setLoading(false);
         })
+        console.log(subsList);
     }, [DB]);
 
     const [data, setData] = useState({
@@ -84,8 +95,15 @@ const AddData = () => {
 
     const handleOnSubmit = (e) => {
         e.preventDefault();
-        console.log(data);
+        const serverUrl = `${REACT_APP_SERVER_PORT}/api/sendMail`;
+        const dataToSend = {
+            subsList, 
+            all,
+            data
+        }
         if (data.category && data.title && data.content) {
+            
+            axios.post("/api/sendEmail", dataToSend);
             DB.child('content').push(
                 data,
                 err => {
@@ -139,7 +157,7 @@ const AddData = () => {
                         <Button style={{ marginLeft: "2%" }} variant="secondary">Back</Button>
                     </Link>
                 </Form>
-                <SendToSubs loading={loading} subsList={subsList}/>
+                <SendToSubs loading={loading} subsList={subsList} all={all} handleToggle={handleToggle} />
             </Container>
         </Styles>
     );
@@ -147,14 +165,9 @@ const AddData = () => {
 }
 
 
-const SendToSubs = ({loading, subsList}) => {
-    const [all, setAll] = useState(false);
+const SendToSubs = ({loading, subsList, all, handleToggle}) => {
     const length = Object.keys(subsList).length;
-    const handleToggle = () => {
-        console.log(subsList);
-        setAll(!all);
-    }
-
+    
     return (
         <Container>
         {
@@ -166,15 +179,15 @@ const SendToSubs = ({loading, subsList}) => {
                     
                 <div style={{marginBottom:"2%"}} className="custom-control custom-switch">
                     <input type="checkbox"  onChange={handleToggle} className="custom-control-input" id="customSwitches" />
-                    <label className="custom-control-label" for="customSwitches">Select All</label>
+                    <label className="custom-control-label" htmlFor="customSwitches">Select All</label>
                 </div>
 
                 {   
                     all 
                     ?
                     <div>
-                        <p>{length} SELECTED</p>
-                    <table class="table table-striped">
+                        <p>{length} Subscribers</p>
+                    <table className="table table-striped">
                         <thead>
                             <tr>
                                 <th scope="col">Name</th>
@@ -186,7 +199,7 @@ const SendToSubs = ({loading, subsList}) => {
                             Object.keys(subsList).map((id) => {
                                 const data = subsList[id];
                                 return (
-                                    <tr>
+                                    <tr key={id}>
                                         <td>{data.name}</td>
                                         <td>{data.email}</td>                                                                                                                
                                     </tr>
