@@ -2,7 +2,7 @@
   "name": "myapprrr",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://ritu-writes.herokuapp.com/",
+  "proxy": "process.env.REACT_APP_HEROKU_PORT",
   "homepage": "https://a1pha31.github.io/ritu-writes/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.6",
